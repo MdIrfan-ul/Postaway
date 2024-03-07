@@ -18,13 +18,6 @@
   "homepage": "https://github.com/MdIrfan-ul/Postaway#readme",
   "dependencies": {
     "express": "^4.18.3",
-<<<<<<< HEAD
-    "jsonwebtoken": "^9.0.2",
-    "winston": "^3.12.0"
-  },
-  "type": "module"
-=======
     "winston": "^3.12.0"
   }
->>>>>>> fbc22a4db6cfe7bf5132ffdeff1c61c421b70920
 }
