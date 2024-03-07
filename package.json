@@ -1,0 +1,23 @@
+{
+  "name": "postaway",
+  "version": "1.0.0",
+  "description": "Social Networking Platform API Postaway is a social networking platform designed to facilitate seamless user interaction through posts, media sharing, likes, and comments.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MdIrfan-ul/Postaway.git"
+  },
+  "author": "Mohamed Irfanullah M",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MdIrfan-ul/Postaway/issues"
+  },
+  "homepage": "https://github.com/MdIrfan-ul/Postaway#readme",
+  "dependencies": {
+    "express": "^4.18.3",
+    "winston": "^3.12.0"
+  }
+}
