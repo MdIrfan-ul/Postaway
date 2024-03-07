@@ -1,0 +1,29 @@
+User Routes
+
+1. signup 
+2. signin
+
+Post Routes
+
+/api/posts
+
+1. Get All Posts
+2. Get Specific Post
+3. Get Based On User
+4. Create Post
+5. Delete Post by id
+6. Update Post by id
+
+
+/api/comments
+
+1. get all comments for Specific post
+2. Add comment to a Specific post 
+3. Delete a Specific comment By id
+4. update a Specific comment by id
+
+
+/api/likes
+
+1. get all likes for a Specific post
+2. toggle like status for a Specific post
