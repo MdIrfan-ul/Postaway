@@ -1,3 +1,5 @@
+import ApplicationError from "../../../middlewares/application.error.middleware.js";
+
 export default class UserModel {
   constructor(id, name, email, password) {
     this.id = id;
@@ -15,6 +17,9 @@ export default class UserModel {
     let isValid = users.find(
       (user) => user.email == email && user.password == password
     );
+    if (!isValid) {
+      throw new ApplicationError("Invalid email or password.",400);
+    }
     return isValid;
   }
 }

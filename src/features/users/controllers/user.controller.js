@@ -11,12 +11,15 @@ export default class UserController{
     login(req,res,next){
         const email = req.body.email;
         const password = req.body.password;
-        let isvalidUser = UserModel.isvalidUser(email,password);
+        try {
+            let isvalidUser = UserModel.isvalidUser(email,password);
         if(isvalidUser){
             const token = jwt.sign({userId:isvalidUser.id,email:isvalidUser.email},"Ap#,*2IjKH'A71u",{expiresIn:"1h"})
             res.status(200).send(token);
-        }else{
-            res.status(400).send("Invalid Credentials")
         }
+        } catch (error) {
+            next(error);
+        }
+        
     }
 }
