@@ -5,7 +5,6 @@ import express from "express";
 import postRoutes from "./src/features/posts/routes/post.routes.js";
 import userRoutes from "./src/features/users/routes/user.routes.js";
 import commentRoutes from "./src/features/comments/routes/comment.routes.js";
-import likeRoutes from "./src/features/likes/routes/likes.routes.js";
 import jwtAuth from "./src/middlewares/jwtAuth.middleware.js";
 import loggerMiddleware from "./src/middlewares/logger.middleware.js";
 
