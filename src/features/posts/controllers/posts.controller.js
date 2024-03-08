@@ -21,7 +21,7 @@ export default class PostController {
     if (specificPost) {
       res.status(200).send(specificPost);
     } else {
-      res.status(400).send("Post not found");
+      res.status(404).send("Post not found");
     }
   }
   // Get UserPost By UserId
