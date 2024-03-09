@@ -7,10 +7,26 @@ const postRoutes = express.Router();
 
 const postController = new PostController();
 
+// Additional Tasks
+postRoutes.get("/filter", postController.filterPosts);
+postRoutes.post("/:postId/save", postController.savePosts);
+postRoutes.put("/:postId/archieve",postController.archivePost);
+postRoutes.post("/:postId/bookmark",postController.bookmarkPost);
+
 postRoutes.get("/all", postController.getPosts);
-postRoutes.post("/",uploadFile.single('imageUrl'),addValidationMiddleware,postController.createPost);
+postRoutes.post(
+  "/",
+  uploadFile.single("imageUrl"),
+  addValidationMiddleware,
+  postController.createPost
+);
 postRoutes.get("/:id", postController.getSpecificPost);
-postRoutes.put("/:id", uploadFile.single('imageUrl'),addValidationMiddleware,postController.updatePost);
+postRoutes.put(
+  "/:id",
+  uploadFile.single("imageUrl"),
+  addValidationMiddleware,
+  postController.updatePost
+);
 postRoutes.delete("/:id", postController.deletePost);
 postRoutes.get("/", postController.getUserPost);
 
