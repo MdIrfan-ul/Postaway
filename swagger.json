@@ -574,15 +574,22 @@
             "JWT": []
           }
         ],
-        "parameters": [
+        "parameters": [{
+          "name":"postId",
+          "in":"path",
+          "required":true,
+          "schema":{
+            "type":"number"
+          },"description": "Enter The postId"
+        },
           {
-            "name": "pageNo",
+            "name": "page",
             "in": "query",
             "required": true,
             "schema": {
               "type": "string"
             },
-            "description": "Enter The Caption to filter"
+            "description": "Enter The pageNo"
           }
         ],
         "responses": {
