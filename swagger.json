@@ -376,7 +376,7 @@
         "/api/comments/{id}": {
             "get": {
               "tags": ["Comments"],
-              "summary": "Get comments for a post with pagination",
+              "summary": "Get comments for a post with postId",
               "description": "Enter Id to get the Comments",
               "security": [
                 {
@@ -523,7 +523,42 @@
                 }
               }
             }
-          },"/api/likes/{id}": {
+          },"/api/comments/pages/{id}":{
+            "get":{
+              "tags":["Comments"],
+              "summary":"Get paginated Comments",
+              "description":"enter pageNo to get paginated comments",
+              "security": [
+                {
+                    "JWT": []
+                }
+            ],
+            "parameters":[
+              {
+                "name":"pageNo",
+                "in": "query",
+                  "required": true,
+                  "schema": {
+                    "type": "string"
+                  }
+                  ,
+                  "description": "Enter The Caption to filter"
+              }
+            ],
+              "responses": {
+                "200": {
+                  "description": "OK"
+                },
+                "404": {
+                  "description": "Not Found"
+                },
+                "500": {
+                  "description": "Internal Server Error"
+                }
+              }
+            }
+          },
+          "/api/likes/{id}": {
             "post": {
               "tags": ["Likes"],
               "summary": "Add a like to a post",

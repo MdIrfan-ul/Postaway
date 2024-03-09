@@ -15,7 +15,7 @@ export default class CommentModel{
     static get(postId){
         const getComments = comments.filter(comment=> comment.postId == postId);
         if(getComments.length===0){
-            throw new ApplicationError("No comments for this specific post",404);
+            throw new ApplicationError("No comments for this specific postId",404);
         }
 
         return getComments;

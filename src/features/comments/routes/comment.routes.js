@@ -9,6 +9,8 @@ commentRoutes.get("/:id",commentController.getComments);
 commentRoutes.post("/:id",commentController.addComments);
 commentRoutes.delete("/:id",commentController.deleteComments);
 
+commentRoutes.get("/pages/:id",commentController.paginationComments);
+
 
 
 export default commentRoutes;
