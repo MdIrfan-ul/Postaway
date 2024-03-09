@@ -1,20 +1,23 @@
 import PostModel from "../../posts/models/post.model.js";
+import ApplicationError from "../../../middlewares/application.error.middleware.js";
 
-export default class LikeModel{
-    constructor(id,userId,postId){
+export default class LikeModel {
+    constructor(id, userId, postId) {
         this.id = id;
         this.userId = userId;
         this.postId = postId;
     }
-
-    static toggle(userId,postId){
-           // Check if the postId exists in the posts collection
-        const existingPost = PostModel.getAll().find(post => post.id == postId);
+    // Toggle Like Feature
+    static toggle(userId, postId) {
+        // Check if the postId exists in the posts collection
+        const existingPost = PostModel.getAll().find((post) => post.id == postId);
         if (!existingPost) {
-            return "Post not found";
+            throw new ApplicationError("Post not found for the given Id", 404);
         }
 
-        const existingLikeIndex = likes.findIndex(like => like.userId == userId && like.postId == postId);
+        const existingLikeIndex = likes.findIndex(
+            (like) => like.userId == userId && like.postId == postId
+        );
 
         if (existingLikeIndex !== -1) {
             // If like exists, remove it
@@ -27,12 +30,15 @@ export default class LikeModel{
             likes.push(newLike);
             return { liked: true };
         }
-        
     }
-   static get(postId){
-        return  likes.filter(like=>like.postId ==postId);
+    //   Get the likes by PostId
+    static get(postId) {
+        const like = likes.filter((like) => like.postId == postId);
+        if (like.length === 0) {
+            throw new ApplicationError("No likes found for the specified post", 404);
+        }
+        return like;
     }
 }
 
-
-var likes =[];
+var likes = [];

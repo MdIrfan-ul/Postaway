@@ -1,27 +1,25 @@
 import LikeModel from "../models/likes.model.js";
 
-
-
-export default class LikesController{
-    addLikes(req,res,next){
-        const postId = req.params.id;
-        const userId = req.userId;
-        const newLike = LikeModel.toggle(userId,postId);
-        if(!newLike){
-            res.status(400).status("No Likes for this post")
-        }else{
-
+export default class LikesController {
+    // Add Likes using postId
+    addLikes(req, res, next) {
+        try {
+            const postId = req.params.id;
+            const userId = req.userId;
+            const newLike = LikeModel.toggle(userId, Number(postId));
             res.status(201).json(newLike);
+        } catch (error) {
+            next(error);
         }
-
     }
-    getAllLikes(req,res,next){
-        const postId = req.params.id;
-        const likes = LikeModel.get(postId);
-            if (likes && likes.length>0) {
-                res.status(200).json(likes);
-            } else {
-                res.status(404).send("No likes found for the specified post");
-            }
+    // Get All likes using postId
+    getAllLikes(req, res, next) {
+        try {
+            const postId = req.params.id;
+            const likes = LikeModel.get(postId);
+            res.status(200).json(likes);
+        } catch (error) {
+            next(error);
+        }
     }
 }
