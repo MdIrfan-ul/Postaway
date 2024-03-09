@@ -3,13 +3,26 @@ import CommentModel from "../models/comment.model.js";
 
 export default class CommentController{
     getComments(req,res,next){
-        const postId = req.params.id;
         try {
-            const comments = CommentModel.get(postId);
-            res.status(200).json(comments);
-        } catch (error) {
-            next(error); // Pass the error to the error handling middleware
-        }
+            const page = parseInt(req.query.page) || 1; // Default to page 1 if not provided
+            const limit = parseInt(req.query.limit) || 10; // Default limit of 10 posts per page
+            const startIndex = (page - 1) * limit;
+            const endIndex = page * limit;
+      
+            const posts = CommentModel.getAll();
+            const paginatedComments = posts.slice(startIndex, endIndex);
+            if(paginatedComments.length ===0){
+              throw new ApplicationError("No posts available for the specified page",404);
+            }
+      
+            res.status(200).json({
+              currentPage: page,
+              totalPages: Math.ceil(posts.length / limit),
+              posts: paginatedComments
+            });
+          } catch (error) {
+            next(error);
+          }
     }
     addComments(req,res,next){
         const userId = req.userId;
