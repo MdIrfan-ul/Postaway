@@ -8,6 +8,10 @@ export default class CommentModel{
         this.postId = postId;
         this.content = content;
     }
+
+    static getAll(){
+        return comments;
+    }
     static get(postId){
         const getComments = comments.filter(comment=> comment.postId == postId);
         if(getComments.length===0){
