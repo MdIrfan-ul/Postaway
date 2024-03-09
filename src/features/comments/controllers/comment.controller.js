@@ -30,18 +30,13 @@ export default class CommentController {
         const userId = req.userId;
         const { postId, content } = req.body;
         try {
-            const updatedPost = CommentModel.update(
-                Number(id),
-                userId,
-                Number(postId),
-                content
-            );
+            const updatedPost = CommentModel.update(Number(id), userId, Number(postId), content);
             res.status(200).json(updatedPost);
         } catch (error) {
-            next(error);
+            next(error)
         }
     }
-    // delete Comments by Id
+    // deleteComments by Id
     deleteComments(req, res, next) {
         const postId = req.params.id;
         const userId = req.userId;
@@ -53,7 +48,7 @@ export default class CommentController {
             next(error);
         }
     }
-    // paginatedComments
+    // paginationComments
     paginationComments(req, res, next) {
         try {
             const page = parseInt(req.query.page) || 1; // Default to page 1 if not provided
@@ -64,16 +59,13 @@ export default class CommentController {
             const posts = CommentModel.getAll();
             const paginatedComments = posts.slice(startIndex, endIndex);
             if (paginatedComments.length === 0) {
-                throw new ApplicationError(
-                    "No posts available for the specified page",
-                    404
-                );
+                throw new ApplicationError("No posts available for the specified page", 404);
             }
 
             res.status(200).json({
                 currentPage: page,
                 totalPages: Math.ceil(posts.length / limit),
-                posts: paginatedComments,
+                posts: paginatedComments
             });
         } catch (error) {
             next(error);
