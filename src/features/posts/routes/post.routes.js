@@ -10,8 +10,8 @@ const postController = new PostController();
 // Additional Tasks
 postRoutes.get("/filter", postController.filterPosts);
 postRoutes.post("/:postId/save", postController.savePosts);
-postRoutes.put("/:postId/archieve",postController.archivePost);
-postRoutes.post("/:postId/bookmark",postController.bookmarkPost);
+postRoutes.put("/:postId/archieve", postController.archivePost);
+postRoutes.post("/:postId/bookmark", postController.bookmarkPost);
 
 postRoutes.get("/all", postController.getPosts);
 postRoutes.post(
