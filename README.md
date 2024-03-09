@@ -16,6 +16,7 @@ Postaway's core functionality revolves around allowing users to create posts enr
 ## Key Features
 
 - **User Authentication**: Users can sign up and sign in securely to access the platform's features.
+- **JWT**: JSON Web Token used for secure authentication.
 - **Create and Manage Posts**: Users can create, update, delete, and archive their posts, incorporating text and media content.
 - **Engagement Features**: Postaway supports user engagement with like and comment functionalities for each post.
 - **Bookmarking and Saving**: Users can bookmark or save posts for later reference.
