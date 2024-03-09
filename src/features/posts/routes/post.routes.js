@@ -3,8 +3,10 @@ import express from "express";
 import PostController from "../controllers/posts.controller.js";
 import { uploadFile } from "../../../middlewares/file-upload.middleware.js";
 import { addValidationMiddleware } from "../../../middlewares/validation.middleware.js";
-const postRoutes = express.Router();
 
+// PostRoutes
+
+const postRoutes = express.Router();
 const postController = new PostController();
 
 // Additional Tasks

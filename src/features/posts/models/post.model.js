@@ -1,6 +1,6 @@
 import ApplicationError from "../../../middlewares/application.error.middleware.js";
-import UserModel from "../../users/models/user.models.js";
 
+// Post Model
 export default class PostModel {
   constructor(id, userId, caption, imageUrl) {
     this.id = id;
@@ -11,14 +11,17 @@ export default class PostModel {
     this.archived = false;
     this.bookmarkedBy = [];
   }
+  // Retreive all the posts
   static getAll() {
     return posts;
   }
+  // Add posts
   static add(userId, caption, imageUrl) {
     let newPosts = new PostModel(posts.length + 1, userId, caption, imageUrl);
     posts.push(newPosts);
     return newPosts;
   }
+  // get Posts by id
   static getById(id) {
     let post = posts.find((post) => post.id == id);
     if (!post) {
@@ -26,9 +29,11 @@ export default class PostModel {
     }
     return post;
   }
+  // get Post based on userCredentitals
   static getUserPost(userId) {
     return posts.filter((user) => user.userId == userId);
   }
+  // update Post based on userId and id
   static update(id, userId, caption, imageUrl) {
     const index = posts.findIndex((i) => i.id == id && i.userId == userId);
     if (index == -1) {
@@ -41,6 +46,7 @@ export default class PostModel {
       return (posts[index] = updatedPost);
     }
   }
+  // remove post by postId and userId
   static remove(postId, userId) {
     const index = posts.findIndex((i) => i.id == postId && i.userId == userId);
     if (index == -1) {
@@ -52,6 +58,7 @@ export default class PostModel {
       posts.splice(index, 1);
     }
   }
+  // filter Posts by caption
   static getByCaption(caption) {
     console.log("Attempting to filter by caption:", caption);
     if (!caption.trim()) {
@@ -73,6 +80,7 @@ export default class PostModel {
     console.log("Filtered posts:", filteredPosts);
     return filteredPosts;
   }
+  // save post by postId
   static save(postId, userId) {
     const post = posts.find((post) => post.id == postId);
     if (!post) {
@@ -86,6 +94,7 @@ export default class PostModel {
 
     post.savedBy.push(userId);
   }
+  // archieve post by postId
   static archivePost(postId) {
     const post = posts.find((post) => post.id == postId);
     if (!post) {
@@ -94,7 +103,7 @@ export default class PostModel {
 
     post.archived = true;
   }
-
+  // bookMark post by postId
   static bookMark(postId, userId) {
     const post = posts.find((post) => post.id == postId);
     if (!post) {
