@@ -1,0 +1,25 @@
+{
+  "name": "postaway-social-media",
+  "version": "1.0.0",
+  "description": " social media backend REST API that empowers users to post,comment, like, send friend requests and reset their passwords using OTP for enhanced security.",
+  "main": "server.js",
+  "scripts": {
+    "test": "npm start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MdIrfan-ul/Postaway-II-Project-social-media.git"
+  },
+  "author": "Mohamed Irfanullah M",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MdIrfan-ul/Postaway-II-Project-social-media/issues"
+  },
+  "homepage": "https://github.com/MdIrfan-ul/Postaway-II-Project-social-media#readme",
+  "dependencies": {
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongodb": "^6.5.0",
+    "mongoose": "^8.2.3"
+  }
+}
