@@ -8,9 +8,9 @@ export default class UserController {
   }
   async register(req, res) {
     try {
-      let { name, email, password, gender, avatar } = req.body;
+      let { name, email, password, gender } = req.body;
       password = await bcrypt.hash(password, 12);
-      const newUser = { name, email, password, gender, avatar };
+      const newUser = { name, email, password, gender };
       await this.userRepository.register(newUser);
       res.status(201).send("New User Registered");
     } catch (error) {
@@ -89,9 +89,12 @@ export default class UserController {
     try {
       const userId = req.params.userId;
       const userData = req.body;
-      const update = await this.userRepository.updateUser(userId, userData);
-      console.log(update)
-      res.status(200).send("User Updated Successfully");
+      if (req.file) {
+        userData.avatar = req.file.filename;
+      }
+
+      await this.userRepository.updateUser(userId, userData);
+      res.status(200).send("User updated successfully");
     } catch (error) {
       console.error(error);
       res.status(error.code).send(error.message);

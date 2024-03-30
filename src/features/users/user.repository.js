@@ -2,7 +2,6 @@ import mongoose from "mongoose";
 import UserSchema from "./user.schema.js";
 import ApplicationError from "../../errorhandlers/application.errors.js";
 import { ObjectId } from "mongodb";
-import fs from "fs";
 
 const UserModel = mongoose.model("User", UserSchema);
 export default class UserRepository {
@@ -93,7 +92,7 @@ export default class UserRepository {
   async getUser(userId) {
     try {
       const user = await UserModel.findById(userId).select(
-        "-password -loggedIn -loginTokens "
+        "name email avatar gender "
       );
       if (!user) {
         throw new Error("user not found");
@@ -116,31 +115,12 @@ export default class UserRepository {
   }
   async updateUser(userId, userData) {
     try {
-      const existingUser = await UserModel.findById(userId);
-
-      if (!existingUser) {
-        throw new Error("User not found");
+      const user = await UserModel.findByIdAndUpdate(userId, userData);
+      if (!user) {
+        throw new Error("user not found");
       }
-
-      // Check if the submitted data is identical to the existing user data
-     // Update user fields
-     existingUser.name = userData.name || existingUser.name;
-     existingUser.email = userData.email || existingUser.email;
-     existingUser.gender = userData.gender || existingUser.gender;
-
-     // If avatar data is provided, update it
-     if (userData.avatar) {
-       existingUser.avatar = userData.avatar;
-     }
-
-      
-       // Save the updated user
-       const updatedUser = await existingUser.save();
-       console.log(updatedUser);
-
-       return updatedUser;
     } catch (error) {
-      console.error(error);
+      console.log(error);
       throw new ApplicationError("Updation failed", 400);
     }
   }
