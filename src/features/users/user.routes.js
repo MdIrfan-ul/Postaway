@@ -11,10 +11,10 @@ UserRoutes.post("/signup",(req,res)=>{
 UserRoutes.post("/signin",(req,res,next)=>{
     userController.login(req,res,next);
 });
-UserRoutes.get("/logout",(req,res)=>{
+UserRoutes.get("/logout",jwtAuth,(req,res)=>{
     userController.logout(req,res);
 });
-UserRoutes.get("/logout-all-devices",(req,res)=>{
+UserRoutes.get("/logout-all-devices",jwtAuth,(req,res)=>{
     userController.logoutAll(req,res);
 });
 UserRoutes.get("/get-details/:userId",(req,res)=>{

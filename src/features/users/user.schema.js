@@ -13,7 +13,9 @@ const UserSchema = mongoose.Schema({
         },
         message: props => `Password length should be greater than or equal to 8 characters!`
     }},
-    gender:String
+    gender:String,
+    loggedIn: { type: Boolean, default: false },
+    loginTokens:[String]
 });
 
 export default UserSchema;
