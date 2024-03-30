@@ -22,7 +22,7 @@ app.use("/api/users",UserRoutes);
 // app.use("/api/otp")
 
 app.use((req,res)=>{
-    res.status(404).json("API Not Found. Please Verify the Document to know More Information at localhost:5000/api-docs");
+    res.status(404).json(`API Not Found. Please Verify the Document to know More Information at localhost:${process.env.PORT}/api-docs`);
 })
 
 app.use((err,req,res,next)=>{
