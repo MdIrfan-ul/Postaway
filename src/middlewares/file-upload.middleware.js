@@ -12,6 +12,22 @@ const storage = multer.diskStorage({
   },
 });
 
-export const uploadFile = multer({
+ const uploadFile = multer({
   storage: storage,
 });
+const postStorage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "./uploads/posts");
+  },
+  filename: function (req, file, cb) {
+    const fileName =
+      file.originalname;
+    cb(null, fileName);
+  },
+});
+
+ const postUpload = multer({
+  storage: postStorage,
+});
+
+export {uploadFile,postUpload}
