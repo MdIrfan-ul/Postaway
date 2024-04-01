@@ -4,6 +4,7 @@ import jwtAuth from "./src/middlewares/jwtAuth.middleware.js"
 import UserRoutes from "./src/features/users/user.routes.js";
 import ApplicationError from "./src/errorhandlers/application.errors.js";
 import PostRoutes from "./src/features/posts/post.routes.js";
+import CommentsRoutes from "./src/features/comments/comments.routes.js";
 
 
 const app = express();
@@ -18,7 +19,7 @@ app.get("/",(req,res)=>{
 
 app.use("/api/users",UserRoutes)
 app.use("/api/posts",jwtAuth,PostRoutes);
-// app.use("/api/comments")
+app.use("/api/comments",jwtAuth,CommentsRoutes);
 // app.use("/api/likes")
 // app.use("/api/friends")
 // app.use("/api/otp")
