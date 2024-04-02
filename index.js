@@ -31,7 +31,7 @@ app.use((req, res) => {
   res
     .status(404)
     .json(
-      "API Not Found. Please Verify the Document to know More Information at localhost:5000/api-docs"
+      "API Not Found. Please Verify the Document to know More Information at https://documenter.getpostman.com/view/33021592/2sA35JzKrW"
     );
 });
 

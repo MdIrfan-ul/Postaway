@@ -19,3 +19,8 @@
 {"level":"info","message":"GET / - {}","service":"request-logging"}
 {"level":"info","message":"GET / - {}","service":"request-logging"}
 
+{"level":"info","message":"GET /api-docs/ - {}","service":"request-logging"}
+{"level":"info","message":"GET /favicon.ico - {}","service":"request-logging"}
+{"level":"info","message":"GET /api-docs/ - {}","service":"request-logging"}
+{"level":"info","message":"GET /api-docs/ - {}","service":"request-logging"}
+{"level":"info","message":"GET /api-docs/ - {}","service":"request-logging"}
