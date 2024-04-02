@@ -1,5 +1,3 @@
-{"level":"info","message":"/reset-password - {\"password\":\"Codingninjas1212\"}","service":"request-logging"}
-
 {"level":"info","message":"/logout-all-devices - {}","service":"request-logging"}
 {"level":"info","message":"/logout-all-devices - {}","service":"request-logging"}
 {"level":"info","message":"/logout-all-devices - {}","service":"request-logging"}
