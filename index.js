@@ -8,10 +8,11 @@ import CommentsRoutes from "./src/features/comments/comments.routes.js";
 import LikeRoutes from "./src/features/likes/likes.routes.js";
 import FriendsRoutes from "./src/features/friends/friends.routes.js";
 import OtpRoutes from "./src/features/otp/otp.routes.js";
+import logMiddleware from "./src/middlewares/logger.middleware.js";
 
 const app = express();
 app.use(express.json());
-
+app.use(logMiddleware);
 app.get("/", (req, res) => {
   res.json({
     appName: "Postaway-II",

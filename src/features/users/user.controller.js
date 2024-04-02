@@ -1,6 +1,7 @@
 import UserRepository from "./user.repository.js";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
+import { errorLogger } from "../../middlewares/logger.middleware.js";
 
 export default class UserController {
   constructor() {
@@ -52,6 +53,7 @@ export default class UserController {
       await this.userRepository.logout(userId, token);
       res.status(200).send("Logged out successfully.");
     } catch (error) {
+      errorLogger.error(error.message);
       console.error(error);
       res.status(error.code).send(error.message);
     }
@@ -62,6 +64,7 @@ export default class UserController {
       await this.userRepository.logoutAll(userId);
       res.status(200).send("Logged out from all devices");
     } catch (error) {
+      errorLogger.error(error.message);
       console.error(error);
       res.status(error.code).send(error.message);
     }
@@ -72,6 +75,7 @@ export default class UserController {
       const user = await this.userRepository.getUser(userId);
       res.status(200).send(user);
     } catch (error) {
+      errorLogger.error(error.message);
       console.error(error);
       res.status(error.code).send(error.message);
     }
@@ -81,6 +85,7 @@ export default class UserController {
       const users = await this.userRepository.getAllUser();
       res.status(200).send(users);
     } catch (error) {
+      errorLogger.error(error.message);
       console.error(error);
       res.status(error.code).send(error.message);
     }
@@ -96,6 +101,7 @@ export default class UserController {
       await this.userRepository.updateUser(userId, userData);
       res.status(200).send("User updated successfully");
     } catch (error) {
+      errorLogger.error(error.message);
       console.error(error);
       res.status(error.code).send(error.message);
     }

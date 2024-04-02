@@ -41,6 +41,10 @@ throw new ApplicationError(error.message,error.code);
 }
 async verifyOtp(otp,email){
     try {
+        const verifyEmail = await UserModel.findOne({email});
+        if(!verifyEmail){
+            throw new Error("Email is incorrect");
+        }
         const verify =await OtpModel.findOne({otp:otp,email:email});
         if(!verify){
             throw new ApplicationError("Otp is incorrect",400);
@@ -49,7 +53,7 @@ async verifyOtp(otp,email){
 
     } catch (error) {
         console.log(error);
-        throw new ApplicationError("Failed to verify otp",400);
+        throw new ApplicationError(`Failed to verify otp ${error.message}`,400);
     }
 }
 async resetPassword(userId,hashedPassword)

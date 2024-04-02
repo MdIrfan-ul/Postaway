@@ -1,3 +1,4 @@
+import { errorLogger } from "../../middlewares/logger.middleware.js";
 import PostRepository from "./post.repository.js";
 
 export default class PostController {
@@ -16,6 +17,7 @@ export default class PostController {
       await this.postRepository.addPost(userId, postData);
       res.status(201).send("post added Successfully");
     } catch (error) {
+      errorLogger.error(error.message);
       res.status(error.code).send(error.message);
     }
   }
@@ -24,6 +26,7 @@ export default class PostController {
       const posts = await this.postRepository.getAll();
       res.status(200).send(posts);
     } catch (error) {
+      errorLogger.error(error.message);
       console.log(error);
       res.status(error.code).send(error.message);
     }
@@ -34,6 +37,7 @@ export default class PostController {
       const post = await this.postRepository.getUserPost(postId);
       res.status(200).send(post);
     } catch (error) {
+      errorLogger.error(error.message);
       console.log(error);
       res.status(error.code).send(error.message);
     }
@@ -44,6 +48,7 @@ export default class PostController {
       const post = await this.postRepository.getPosts(userId);
       res.status(200).send(post);
     } catch (error) {
+      errorLogger.error(error.message);
       console.log(error);
       res.status(error.code).send(error.message);
     }
@@ -63,6 +68,7 @@ export default class PostController {
       await this.postRepository.removePost(postId);
       res.status(200).send("Post Deleted Successfully");
     } catch (error) {
+      errorLogger.error(error.message);
       console.log(error);
       res.status(error.code).send(error.message);
     }
@@ -83,6 +89,7 @@ export default class PostController {
         const updatedPost = await this.postRepository.updatePost(postId, userId, postData); // Pass postData to updatePost method
         res.status(200).send(updatedPost);
     }  catch (error) {
+      errorLogger.error(error.message);
         console.log(error);
         res.status(error.code).send(error.message);
     }
