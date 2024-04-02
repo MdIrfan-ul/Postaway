@@ -18,14 +18,4 @@
 {"level":"info","message":"GET / - {}","service":"request-logging"}
 {"level":"info","message":"GET / - {}","service":"request-logging"}
 {"level":"info","message":"GET / - {}","service":"request-logging"}
-{"level":"info","message":"GET /swagger-ui.css - {}","service":"request-logging"}
-{"level":"info","message":"GET /swagger-ui-bundle.js - {}","service":"request-logging"}
-{"level":"info","message":"GET /swagger-ui-standalone-preset.js - {}","service":"request-logging"}
-{"level":"info","message":"GET /swagger-ui-init.js - {}","service":"request-logging"}
-{"level":"info","message":"GET /favicon-32x32.png - {}","service":"request-logging"}
-{"level":"info","message":"GET / - {}","service":"request-logging"}
-{"level":"info","message":"GET /swagger-ui.css - {}","service":"request-logging"}
-{"level":"info","message":"GET /swagger-ui-bundle.js - {}","service":"request-logging"}
-{"level":"info","message":"GET /swagger-ui-standalone-preset.js - {}","service":"request-logging"}
-{"level":"info","message":"GET /swagger-ui-init.js - {}","service":"request-logging"}
-{"level":"info","message":"GET /favicon-32x32.png - {}","service":"request-logging"}
+
