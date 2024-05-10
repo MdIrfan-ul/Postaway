@@ -5,12 +5,19 @@ import { ObjectId } from "mongodb";
 
 const UserModel = mongoose.model("User", UserSchema);
 export default class UserRepository {
-  async register(userData) {
+  async register({ name, email, password, gender }) {
     try {
-      const newUser = new UserModel(userData);
+      const newUser = new UserModel({ name, email, password, gender });
       return await newUser.save();
     } catch (error) {
       console.log(error);
+      if(error.code===404){
+        throw new ApplicationError(error.message,error.code);
+      }
+      if (error.name === 'ValidationError') {
+        const validationErrors = Object.values(error.errors).map(({ message }) => message);
+        throw new ApplicationError(validationErrors.join(', '), 400);
+      }
       throw new ApplicationError(
         "User is Already Registered Login to Continue",
         400

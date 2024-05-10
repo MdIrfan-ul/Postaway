@@ -24,3 +24,17 @@
 {"level":"info","message":"GET /api-docs/ - {}","service":"request-logging"}
 {"level":"info","message":"GET /api-docs/ - {}","service":"request-logging"}
 {"level":"info","message":"GET /api-docs/ - {}","service":"request-logging"}
+{"level":"info","message":"POST /signup - {\"name\":\"Mohamed Irfanullah\",\"email\":\"\",\"password\":\"Codingninjas1212\",\"gender\":\"Male\"}","service":"request-logging"}
+{"level":"info","message":"POST /signup - {\"name\":\"Mohamed Irfanullah\",\"email\":\"\",\"password\":\"Codingninjas1212\",\"gender\":\"Male\"}","service":"request-logging"}
+{"level":"info","message":"POST /signup - {\"name\":\"\",\"email\":\"irfannisar14@gmail.com\",\"password\":\"Codingninjas1212\",\"gender\":\"Male\"}","service":"request-logging"}
+{"level":"info","message":"POST /signup - {\"name\":\"\",\"email\":\"irfannisar14@gmail.com\",\"password\":\"Codingninjas1212\",\"gender\":\"Male\"}","service":"request-logging"}
+{"level":"info","message":"POST /signup - {\"name\":\"\",\"email\":\"irfannisar14@gmail.com\",\"password\":\"Codingninjas1212\",\"gender\":\"Male\"}","service":"request-logging"}
+{"level":"info","message":"POST /signup - {\"name\":\"\",\"email\":\"irfannisar14@gmail.com\",\"password\":\"Codingninjas1212\",\"gender\":\"Male\"}","service":"request-logging"}
+{"level":"info","message":"POST /signup - {\"name\":\"Mohamed Irfanullah\",\"email\":\"\",\"password\":\"Codingninjas1212\",\"gender\":\"Male\"}","service":"request-logging"}
+{"level":"info","message":"POST /signup - {\"name\":\"Mohamed Irfanullah\",\"email\":\"\",\"password\":\"Codingninjas1212\",\"gender\":\"Male\"}","service":"request-logging"}
+{"level":"info","message":"POST /signup - {\"name\":\"Mohamed Irfanullah\",\"email\":\"\",\"password\":\"Codingninjas1212\",\"gender\":\"Male\"}","service":"request-logging"}
+{"level":"info","message":"POST /signup - {\"name\":\"Mohamed Irfanullah\",\"email\":\"\",\"password\":\"Codingninjas1212\",\"gender\":\"Male\"}","service":"request-logging"}
+{"level":"info","message":"POST /signup - {\"name\":\"\",\"email\":\"\",\"password\":\"Codingninjas1212\",\"gender\":\"Male\"}","service":"request-logging"}
+{"level":"info","message":"POST /signup - {\"name\":\"\",\"email\":\"\",\"password\":\"Codingninjas1212\",\"gender\":\"Male\"}","service":"request-logging"}
+{"level":"info","message":"POST /signup - {\"name\":\"Mohamed Irfanullah\",\"email\":\"irfannisar14@gmail.com\",\"password\":\"Codingninjas1212\",\"gender\":\"Male\"}","service":"request-logging"}
+{"level":"info","message":"POST /signup - {\"name\":\"Mohamed Irfanullah\",\"email\":\"irfannisar14@gmail.com\",\"password\":\"Codingninjas1212\",\"gender\":\"Male\"}","service":"request-logging"}

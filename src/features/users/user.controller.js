@@ -11,8 +11,7 @@ export default class UserController {
     try {
       let { name, email, password, gender } = req.body;
       password = await bcrypt.hash(password, 12);
-      const newUser = { name, email, password, gender };
-      await this.userRepository.register(newUser);
+      await this.userRepository.register({ name, email, password, gender });
       res.status(201).send("New User Registered");
     } catch (error) {
       res.status(400).send(error.message);

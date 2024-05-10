@@ -1,14 +1,15 @@
 import mongoose from "mongoose";
 
 const UserSchema = mongoose.Schema({
-  name: { type: String, required: [true, "Name is required"] },
+  name: { type: String, required: [true, "Name is required for signup"], minlength: [5, "Name should be at least 5 characters"], 
+  maxlength: [25, "Name should not exceed 25 characters"] },
   email: {
     type: String,
     unique: [true, "Email is required"],
     match: [
       /^[\w-]+(?:\.[\w-]+)*@(?:[\w-]+\.)+[a-zA-Z]{2,7}$/,
       "Please enter a valid email",
-    ],
+    ],required:[true,"email is required for signup"]
   },
   password: {
     type: String,
