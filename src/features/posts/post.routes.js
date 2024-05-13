@@ -6,7 +6,7 @@ import { postUpload } from "../../middlewares/file-upload.middleware.js";
 const PostRoutes = express.Router();
 const postController = new PostController();
 
-PostRoutes.post("/", postUpload.single("imageUrl"), (req, res) => {
+PostRoutes.post("/", postUpload.single("image"), (req, res) => {
   postController.addPost(req, res);
 });
 PostRoutes.get("/all", (req, res) => {
@@ -21,7 +21,7 @@ PostRoutes.get("/", (req, res) => {
 PostRoutes.delete("/:postId", (req, res) => {
   postController.deletePost(req, res);
 });
-PostRoutes.put("/:postId", postUpload.single("imageUrl"),(req, res) => {
+PostRoutes.put("/:postId", postUpload.single("image"),(req, res) => {
   postController.updatePost(req, res);
 });
 export default PostRoutes;

@@ -8,12 +8,12 @@ export default class PostController {
   async addPost(req, res) {
     try {
       const userId = req.userId;
-      let { imageUrl, caption } = req.body;
-      // If file is uploaded, set imageUrl from req.file
+      let { image, caption } = req.body;
+      // If file is uploaded, set image from req.file
       if (req.file) {
-        imageUrl = req.file.filename;
+        image = req.file.filename;
       }
-      const postData = { imageUrl, caption };
+      const postData = { image, caption };
       await this.postRepository.addPost(userId, postData);
       res.status(201).send("post added Successfully");
     } catch (error) {
@@ -77,15 +77,15 @@ export default class PostController {
     try {
         const postId = req.params.postId;
         const userId = req.userId;
-        let { caption,imageUrl} = req.body; // Extract caption from req.body
+        let { caption,image} = req.body; // Extract caption from req.body
         
 
-        // Check if file is uploaded and set imageUrl accordingly
+        // Check if file is uploaded and set image accordingly
         if (req.file) {
-            imageUrl = req.file.filename;
+            image = req.file.filename;
         }
 
-        const postData = { caption, imageUrl }; // Create postData object
+        const postData = { caption, image }; // Create postData object
         const updatedPost = await this.postRepository.updatePost(postId, userId, postData); // Pass postData to updatePost method
         res.status(200).send(updatedPost);
     }  catch (error) {
